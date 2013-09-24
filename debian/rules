@@ -7,7 +7,7 @@
 # Uncomment to ignore some test failures (but the tests will run anyway).
 # Valid values:
 #export DH_RUBY_IGNORE_TESTS=ruby1.8 ruby1.9.1 require-rubygems
-export DH_RUBY_IGNORE_TESTS=require-rubygems
+export DH_RUBY_IGNORE_TESTS=ruby1.8 require-rubygems
 #
 # If you need to specify the .gemspec (eg there is more than one)
 #export DH_RUBY_GEMSPEC=gem.gemspec
@@ -25,6 +25,8 @@ build-indep:
 
 override_dh_auto_install:
 	dh_auto_install
+	# Do not install the SSL certs bundled in the upstream source
+	rm -rf debian/rubygems/usr/lib/ruby/vendor_ruby/rubygems/ssl_certs
 	mv debian/rubygems/usr/bin/gem debian/rubygems/usr/bin/gem1.8
 	rm debian/rubygems/usr/bin/update_rubygems # not needed
 	# we don't want to share rubygems with 1.9.

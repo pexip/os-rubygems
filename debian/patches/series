@@ -3,4 +3,6 @@
 disable-failing-tests.diff
 disable-tests-failing-as-root.diff
 fix-shebang.diff
-CVE-2012-2125-2126.patch
+20120608-fix-test_gem_platform.rb.diff
+20120608-fix-assert_match.diff
+20120927-disable_upstream_certs.patch
