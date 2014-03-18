@@ -1,9 +1,10 @@
 Source: rubygems
 Section: ruby
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Daigo Moriwaki <daigo@debian.org>
-Uploaders: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>, Lucas Nussbaum <lucas@debian.org>
+XSBC-Pexip-Original-Uploaders: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>, Lucas Nussbaum <lucas@debian.org>
 DM-Upload-Allowed: yes
 Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.2), rake, ruby-minitest, netbase
 Standards-Version: 3.9.2
@@ -11,6 +12,7 @@ Vcs-Git: git://git.debian.org/pkg-ruby-extras/rubygems.git
 Vcs-Browser: http://git.debian.org/?p=pkg-ruby-extras/rubygems.git;a=summary
 Homepage: http://rubygems.org/
 XS-Ruby-Versions: ruby1.8
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: rubygems
 Architecture: all
