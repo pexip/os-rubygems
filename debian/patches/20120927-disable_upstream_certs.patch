@@ -1,0 +1,30 @@
+Description: Use the certificates maintained by the distro
+ Rather than using the certificates packaged in the upstream sources to verify
+ server SSL certificates, use the certificates provided by the ca-certificates
+ package.
+Author: Tyler Hicks <tyhicks@canonical.com>
+Forwarded: not-needed
+Index: rubygems-1.8.24/lib/rubygems/remote_fetcher.rb
+===================================================================
+--- rubygems-1.8.24.orig/lib/rubygems/remote_fetcher.rb	2012-04-27 16:15:17.000000000 -0700
++++ rubygems-1.8.24/lib/rubygems/remote_fetcher.rb	2012-09-27 12:12:53.970805064 -0700
+@@ -8,7 +8,7 @@
+ 
+ class Gem::RemoteFetcher
+ 
+-  BuiltinSSLCerts = File.expand_path("./ssl_certs/*.pem", File.dirname(__FILE__))
++  BuiltinSSLCerts = "/etc/ssl/certs/ca-certificates.crt"
+ 
+   include Gem::UserInteraction
+ 
+@@ -365,8 +365,8 @@
+   end
+ 
+   def add_rubygems_trusted_certs(store)
+-    Dir.glob(BuiltinSSLCerts).each do |ssl_cert_file|
+-      store.add_file ssl_cert_file
++    if File.file? BuiltinSSLCerts
++      store.add_file BuiltinSSLCerts
+     end
+   end
+ 
